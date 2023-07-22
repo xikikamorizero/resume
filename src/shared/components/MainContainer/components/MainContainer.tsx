@@ -10,6 +10,7 @@ export const MainContainer = ({ children }: Props) => {
 };
 
 const Container = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;

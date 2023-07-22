@@ -6,17 +6,18 @@ type Props = {
   width?: string;
   height?: string;
   text?: string;
+  href?:string;
 };
 
 export const Button = ({ ...props }: Props) => {
   return (
-    <Container width={props.width} height={props.height} color={props.color}>
+    <Container href={props.href} width={props.width} height={props.height} color={props.color}>
       <Text>{props.text}</Text>
     </Container>
   );
 };
 
-const Container = styled.div<Props>`
+const Container = styled.a<Props>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   display: flex;
@@ -26,6 +27,8 @@ const Container = styled.div<Props>`
   border-radius: 22px;
 
   background-color: ${(props) => props.color};
+
+  text-decoration: none;
 
   cursor: pointer;
 

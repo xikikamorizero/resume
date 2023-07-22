@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 type Props = {
   children?: React.ReactNode;
+  id?:string;
 };
 
-export const BlockContainer = ({ children }: Props) => {
-  return <Container>{children}</Container>;
+export const BlockContainer = ({ children, id }: Props) => {
+  return <Container id={id}>{children}</Container>;
 };
 
 const Container = styled.div`

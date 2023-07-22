@@ -20,4 +20,8 @@ const Container = styled.div<Props>`
     color: ${(props)=>props.color? props.color : 'var(--textColorHeader)'};
     font-size: ${(props)=>props.fontSize? props.fontSize : '20px'};
     line-height: 1.5em;
+
+    @media (max-width: 700px) {
+        font-size: 15px;
+    }
 `

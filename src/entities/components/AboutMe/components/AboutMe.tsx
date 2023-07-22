@@ -37,7 +37,7 @@ const Container = styled.div`
 const TextContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 100px;
 
   @media (max-width: 911px) {

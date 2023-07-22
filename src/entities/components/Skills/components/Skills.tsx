@@ -57,19 +57,23 @@ const Container = styled.div`
 `;
 const ContainerGrid = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
-  gap: 300px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap:400px;
 
-  @media (max-width: 781px) {
-    gap:100px;
+  @media (max-width: 1187px) {
+    gap:50px;
+    justify-content: space-between;
   }
 `;
 const ContainerSkill = styled.div`
-  width: 100%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap:40px;
+
+  /* background-color: red; */
 `;
 
 type Skill = {
@@ -80,7 +84,7 @@ type Skill = {
 const Skill = ({ ...props }: Skill) => {
   return (
     <SkillContainer>
-      <Title text={props.title} fontSize={"26px"} />
+      <Title text={props.title} fontSize={"26px"} fontSizeM={'22px'} />
       <Text>{props.text}</Text>
     </SkillContainer>
   );
