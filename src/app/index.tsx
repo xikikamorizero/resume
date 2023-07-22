@@ -52,8 +52,8 @@ const App = () => {
       />
       <ImageBack
         image={image4}
-        width={"400px"}
-        widthM={"400px"}
+        width={"450px"}
+        widthM={"450px"}
         height={"600px"}
         heightM={"600px"}
         backgroundSize={"430px"}
@@ -61,7 +61,7 @@ const App = () => {
         top={"55%"}
         topM={"55%"}
         right={"85%"}
-        rightM={"85%"}
+        rightM={"60%"}
         style={{ zIndex: "-1" }}
       />
       <Container>

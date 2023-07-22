@@ -9,39 +9,30 @@ export const Skills = () => {
         <Title text={"Skills"} />
         <ContainerGrid>
           <ContainerSkill>
-            <Skill
-              title={"HTML"}
-              text={"Создание современных и адаптивных сайтов"}
-            />
-            <Skill
-              title={"CSS"}
-              text={"Создание современных и адаптивных сайтов"}
-            />
+            <Skill title={"HTML"} text={"The basis for any website"} />
+            <Skill title={"CSS"} text={"Enliven any project and add color"} />
             <Skill
               title={"JavaScript"}
-              text={"Создание современных и адаптивных сайтов"}
+              text={"Allows you to create interactive web pages"}
             />
             <Skill
               title={"TypeScript"}
-              text={"Создание современных и адаптивных сайтов"}
+              text={"Structures the project and makes any code clearer"}
             />
           </ContainerSkill>
           <ContainerSkill>
             <Skill
               title={"React Js"}
-              text={"Создание современных и адаптивных сайтов"}
+              text={"A library that takes websites to the next level"}
             />
             <Skill
               title={"Redux"}
-              text={"Создание современных и адаптивных сайтов"}
+              text={"Required for client-side data management"}
             />
-            <Skill
-              title={"MobX"}
-              text={"Создание современных и адаптивных сайтов"}
-            />
+            <Skill title={"MobX"} text={"Suitable for small but fast sites"} />
             <Skill
               title={"Axios"}
-              text={"Создание современных и адаптивных сайтов"}
+              text={"Helps when using Rest API requests"}
             />
           </ContainerSkill>
         </ContainerGrid>
@@ -60,10 +51,10 @@ const ContainerGrid = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  gap:400px;
+  gap: 400px;
 
   @media (max-width: 1187px) {
-    gap:50px;
+    gap: 50px;
     justify-content: space-between;
   }
 `;
@@ -71,7 +62,7 @@ const ContainerSkill = styled.div`
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  gap:40px;
+  gap: 40px;
 
   /* background-color: red; */
 `;
@@ -84,7 +75,7 @@ type Skill = {
 const Skill = ({ ...props }: Skill) => {
   return (
     <SkillContainer>
-      <Title text={props.title} fontSize={"26px"} fontSizeM={'22px'} />
+      <Title text={props.title} fontSize={"26px"} fontSizeM={"22px"} />
       <Text>{props.text}</Text>
     </SkillContainer>
   );

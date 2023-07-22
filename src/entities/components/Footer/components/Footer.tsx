@@ -14,7 +14,7 @@ export const Footer = () => {
           <Icon icon={iconI} href={'https://instagram.com/xikikamori_01?igshid=MzNlNGNkZWQ4Mg=='} style={{backgroundColor:'var(--white)', backgroundSize:'27px'}} target="_blank" />
           <Icon icon={iconG} href={'https://github.com/xikikamorizero'} target="_blank" />
         </IconContainer>
-        <Text>© 2023 Kogai Artyom React Js Developer</Text>
+        <Text>© 2023 Kogay Artyom React Js Developer</Text>
       </Container>
     </BlockContainer>
   );

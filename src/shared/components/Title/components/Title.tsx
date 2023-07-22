@@ -22,6 +22,8 @@ const Container = styled.div<Props>`
   font-size: ${(props) => (props.fontSize ? props.fontSize : "48px")};
   line-height: 1.2em;
 
+  filter: drop-shadow(1px 1px 1px var(--white));
+
   @media (max-width: 700px) {
     font-size: ${(props) => (props.fontSizeM ? props.fontSizeM : "30px")};
   }

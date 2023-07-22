@@ -6,21 +6,23 @@ export const AboutMe = () => {
   return (
     <BlockContainer>
       <Container>
-        <Title text={'About Me'} />
+        <Title text={"About Me"} />
         <TextContainer>
           <Text>
-            A photographer with a unique perspective, Matt Perry captures
-            Amsterdam’s vibrant streets and enchanting canals with an eye for
-            detail. Matt’s love for the city and its diverse culture shines
-            through his work, telling a visual story that’s vivid, colorful, and
-            emotive.
+            Hello! My name is Kogay Artyom and I am a dedicated and passionate
+            junior React.js developer with a passion for building dynamic and
+            usable web applications. My web development journey began with a
+            desire to turn creative ideas into functional realities. I love
+            experimenting with the latest technologies and strive to provide
+            amazing user experience with clean and efficient code.
           </Text>
           <Text>
-            Born and raised in Amsterdam, Matt developed a passion for
-            photography during his teenage years and went on to study the art in
-            depth. He’s since built a reputation as a sought-after photographer,
-            capturing precious moments and transforming spaces into works of
-            art.
+            When I was introduced to React.js, the world of web development
+            opened up a lot of possibilities for me. The ability to create
+            components, reuse code, and efficiently manage application state
+            just blew me away. Since my first steps with React.js, I have been
+            constantly deepening my knowledge by studying the documentation,
+            reviewing tutorials, and working on my own projects.
           </Text>
         </TextContainer>
       </Container>
@@ -41,6 +43,6 @@ const TextContainer = styled.div`
   gap: 100px;
 
   @media (max-width: 911px) {
-    gap:40px;
+    gap: 40px;
   }
 `;

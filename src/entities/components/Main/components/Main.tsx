@@ -11,7 +11,7 @@ export const Main = () => {
           <Icons draggable={false} style={{ right: 0 }} />
           <Icons draggable={false} image={image} style={{ left: 0 }} />
         </IconsContainer>
-        <Title>Capturing Amsterdam’s Soul Through the Lens</Title>
+        <Title>Refresh your interface with front-end mastery</Title>
         <Button
           width={"128px"}
           height={"40px"}
