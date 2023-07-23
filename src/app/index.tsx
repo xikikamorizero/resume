@@ -13,42 +13,46 @@ import aboutMe from "./assets/aboutMe.png";
 import skills from "./assets/skills.png";
 
 const App = () => {
-  const [burger, setBurger] = useState(false);
+  const [burger, setBurger] = useState(true);
   return (
     <AppStyle>
       <Burger>
-        <Line right={"34px"} rotate={"80deg"} top={"-29px"}>
+        <Line right={"34px"} rotate={"80deg"} top={"-29px"} rightM={"6px"} rotateM={"170deg"} topM={"-69px"}>
           <Item
             href={"#aboutMe"}
             transition={"0.25s"}
             rotate={"-80deg"}
+            rotateM={"-170deg"}
             state={burger}
             icon={aboutMe}
           />
         </Line>
-        <Line right={"14.6px"} rotate={"25deg"} top={"-4px"}>
+        <Line right={"14.6px"} rotate={"25deg"} top={"-4px"} rightM={"30px"} rotateM={"120deg"} topM={"-53px"}>
           <Item
             href={"#portfolio"}
             transition={"0.20s"}
             rotate={"-25deg"}
+            rotateM={"-120deg"}
             state={burger}
             icon={portfolio}
           />
         </Line>
-        <Line right={"-14.6px"} rotate={"-25deg"} top={"-4px"}>
+        <Line right={"-14.6px"} rotate={"-25deg"} top={"-4px"} rightM={"29px"} rotateM={"60deg"} topM={"-18px"}>
           <Item
             href={"#skills"}
             transition={"0.15s"}
             rotate={"25deg"}
+            rotateM={"-60deg"}
             state={burger}
             icon={skills}
           />
         </Line>
-        <Line right={"-34px"} rotate={"-80deg"} top={"-29px"}>
+        <Line right={"-34px"} rotate={"-80deg"} top={"-29px"} rightM={"6px"} rotateM={"10deg"} topM={"-1px"}>
           <Item
             href={"#contacts"}
             transition={"0.1s"}
             rotate={"80deg"}
+            rotateM={"-10deg"}
             state={burger}
             icon={contacts}
           />
@@ -182,21 +186,25 @@ const Burger = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  z-index: 1;
 
   position: fixed;
-  top: 60px;
-  right: 60px;
-  z-index: 6;
+  top: 50px;
+  right: 100px;
+  z-index: 1;
 
-
-  /* cursor: pointer; */
+  @media (max-width: 700px) {
+    top: 70px;
+  right: 50px;
+  }
 `;
 
 type StyleProps = {
   right?: string;
+  rightM?: string;
   rotate?: string;
+  rotateM?: string;
   top?: string;
+  topM?: string;
   state?: boolean;
   transition?: string;
 
@@ -213,9 +221,15 @@ const Line = styled.div<StyleProps>`
   top: ${(props) => props.top};
   right: ${(props) => props.right};
 
+  transform: rotate(${(props) => props.rotate});
+
   /* background-color: red; */
 
-  transform: rotate(${(props) => props.rotate});
+  @media (max-width: 700px) {
+    top: ${(props) => props.topM};
+    right: ${(props) => props.rightM};
+    transform: rotate(${(props) => props.rotateM});
+  }
 `;
 const Item = styled.a<StyleProps>`
   width: 50px;
@@ -237,6 +251,10 @@ const Item = styled.a<StyleProps>`
   background-size: 35px;
 
   transform: rotate(${(props) => props.rotate});
+
+  @media (max-width: 700px) {
+    transform: rotate(${(props) => props.rotateM});
+  }
 
   :hover {
     -webkit-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
