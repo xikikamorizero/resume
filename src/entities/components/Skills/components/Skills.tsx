@@ -1,38 +1,40 @@
 import React from "react";
-import { BlockContainer, Title, Text } from "../../../../shared";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { BlockContainer, Title, Text } from "../../../../shared";
 
 export const Skills = () => {
+  const { t } = useTranslation("global");
   return (
     <BlockContainer id={'skills'}>
       <Container>
-        <Title text={"Skills"} />
+        <Title text={t("skills.title")} />
         <ContainerGrid>
           <ContainerSkill>
-            <Skill title={"HTML"} text={"The basis for any website"} />
-            <Skill title={"CSS"} text={"Enliven any project and add color"} />
+            <Skill title={"HTML"} text={t("skills.html.text")} />
+            <Skill title={"CSS"} text={t("skills.css.text")} />
             <Skill
               title={"JavaScript"}
-              text={"Allows you to create interactive web pages"}
+              text={t("skills.js.text")}
             />
             <Skill
               title={"TypeScript"}
-              text={"Structures the project and makes any code clearer"}
+              text={t("skills.ts.text")}
             />
           </ContainerSkill>
           <ContainerSkill>
             <Skill
               title={"React Js"}
-              text={"A library that takes websites to the next level"}
+              text={t("skills.react.text")}
             />
             <Skill
               title={"Redux"}
-              text={"Required for client-side data management"}
+              text={t("skills.redux.text")}
             />
-            <Skill title={"MobX"} text={"Suitable for small but fast sites"} />
+            <Skill title={"MobX"} text={t("skills.mobx.text")} />
             <Skill
               title={"Axios"}
-              text={"Helps when using Rest API requests"}
+              text={t("skills.axios.text")}
             />
           </ContainerSkill>
         </ContainerGrid>

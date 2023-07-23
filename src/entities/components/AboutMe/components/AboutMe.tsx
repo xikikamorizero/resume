@@ -1,29 +1,17 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { BlockContainer, Title, Text } from "../../../../shared";
 import styled from "styled-components";
 
 export const AboutMe = () => {
+  const { t } = useTranslation("global");
   return (
-    <BlockContainer id={'aboutMe'}>
+    <BlockContainer id={"aboutMe"}>
       <Container>
-        <Title text={"About Me"} />
+        <Title text={t("aboutMe.title")} />
         <TextContainer>
-          <Text>
-            Hello! My name is Kogay Artyom and I am a dedicated and passionate
-            junior React.js developer with a passion for building dynamic and
-            usable web applications. My web development journey began with a
-            desire to turn creative ideas into functional realities. I love
-            experimenting with the latest technologies and strive to provide
-            amazing user experience with clean and efficient code.
-          </Text>
-          <Text>
-            When I was introduced to React.js, the world of web development
-            opened up a lot of possibilities for me. The ability to create
-            components, reuse code, and efficiently manage application state
-            just blew me away. Since my first steps with React.js, I have been
-            constantly deepening my knowledge by studying the documentation,
-            reviewing tutorials, and working on my own projects.
-          </Text>
+          <Text>{t("aboutMe.text1")}</Text>
+          <Text>{t("aboutMe.text2")}</Text>
         </TextContainer>
       </Container>
     </BlockContainer>

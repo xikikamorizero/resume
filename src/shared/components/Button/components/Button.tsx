@@ -32,9 +32,9 @@ const Container = styled.a<Props>`
 
   cursor: pointer;
 
-  -webkit-box-shadow: 0px 5px 10px 2px rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: 0px 5px 10px 2px rgba(255, 255, 255, 0.2);
-  box-shadow: 0px 5px 10px 2px rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.2);
 
   :active {
     -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;

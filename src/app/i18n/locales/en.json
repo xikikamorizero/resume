@@ -1,0 +1,18 @@
+{
+    "main.title":"Welcome to my resume site! I am a beginner React.js developer.",
+    "main.button":"View Portfolio",
+    "aboutMe.title":"About Me",
+    "aboutMe.text1":"Hello! My name is Kogay Artyom and I am a dedicated and passionate junior React.js developer with a passion for building dynamic and usable web applications. My web development journey began with a desire to turn creative ideas into functional realities. I love experimenting with the latest technologies and strive to provide amazing user experience with clean and efficient code.",
+    "aboutMe.text2":"When I was introduced to React.js, the world of web development opened up a lot of possibilities for me. The ability to create components, reuse code, and efficiently manage application state just blew me away. Since my first steps with React.js, I have been constantly deepening my knowledge by studying the documentation, reviewing tutorials, and working on my own projects.",
+    "skills.title":"Skills",
+    "skills.html.text":"The basis for any website",
+    "skills.css.text":"Enliven any project and add color",
+    "skills.js.text":"Allows you to create interactive web pages",
+    "skills.ts.text":"Structures the project and makes any code clearer",
+    "skills.react.text":"A library that takes websites to the next level",
+    "skills.redux.text":"Required for client-side data management",
+    "skills.mobx.text":"Suitable for small but fast sites",
+    "skills.axios.text":"Helps when using Rest API requests",
+    "project.title":"Projects",
+    "footer.title":"© 2023 Kogay Artyom React Js Developer."
+}

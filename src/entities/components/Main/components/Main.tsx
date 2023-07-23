@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import { Button, MainContainer } from "../../../../shared";
 import image from "../assets/IMG_20230102_191327_531.jpg";
 
 export const Main = () => {
+  const { t, i18n } = useTranslation("global");
+  const [lang, setLang] = useState("ru");
+
+  const Click =()=>{
+    if(lang==='ru'){
+      setLang("en")
+    }
+    else{
+      setLang("ru")
+    }
+  }
+
+  useEffect(()=>{
+    i18n.changeLanguage(lang);
+  },[lang])
   return (
     <MainContainer>
       <Banner>
@@ -11,14 +27,19 @@ export const Main = () => {
           <Icons draggable={false} style={{ right: 0 }} />
           <Icons draggable={false} image={image} style={{ left: 0 }} />
         </IconsContainer>
-        <Title>Refresh your interface with front-end mastery</Title>
-        <Button
-          width={"128px"}
-          height={"40px"}
-          color={"var(--white)"}
-          text={"View Portfolio"}
-          href={"#portfolio"}
-        />
+        <Title>{t("main.title")}</Title>
+        <ContainerButton>
+          <Button
+            width={"128px"}
+            height={"40px"}
+            color={"var(--white)"}
+            text={t("main.button")}
+            href={"#portfolio"}
+          />
+          <LangBlock>
+            <Lang anim={lang==='ru'} onClick={()=>{Click()}}>{lang}</Lang>
+          </LangBlock>
+        </ContainerButton>
       </Banner>
     </MainContainer>
   );
@@ -52,7 +73,8 @@ const IconsContainer = styled.div`
 `;
 const Title = styled.div`
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
+  min-height: 250px;
   color: var(--textColorHeader);
   font-size: 72px;
   line-height: 1.1em;
@@ -62,6 +84,48 @@ const Title = styled.div`
   user-select: none;
 
   @media (max-width: 700px) {
-    font-size: 42px;
+    font-size: 40px;
   }
+`;
+//
+const ContainerButton = styled.div`
+  display: flex;
+  gap: 30px;
+`;
+const LangBlock = styled.div`
+  position: relative;
+  display: flex;
+  width: 80px;
+  border-radius: 22px;
+  background-color: #b2b2c3c9;
+
+  -webkit-box-shadow: 0px 0px 10px 2px rgb(255, 255, 255) inset;
+  -moz-box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.978) inset;
+  box-shadow: 0px 0px 10px 2px rgb(255, 255, 255) inset;
+`;
+const Lang = styled.div<{anim:boolean}>`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 0;
+  left: ${(props)=>props.anim? 0 : 'calc(100% - 40px)'} ;
+  background-color: var(--white);
+
+  text-transform: uppercase;
+
+  -webkit-box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
+  box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+
+  transition: left 0.3s linear;
+
+  cursor: pointer;
 `;

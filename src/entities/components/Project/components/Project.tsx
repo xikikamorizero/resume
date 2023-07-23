@@ -1,15 +1,16 @@
-import React,{useState, useEffect} from "react";
-import { useInView } from 'react-intersection-observer';
+import React from "react";
+import { useTranslation } from "react-i18next";
 import { BlockContainer, Title } from "../../../../shared";
 import styled from "styled-components";
 import image1 from "../assets/project1.png";
 import image2 from "../assets/project2.png";
 
 export const Project = () => {
+  const { t } = useTranslation("global");
   return (
     <BlockContainer id={'portfolio'}>
       <Container>
-        <Title text={'Project'} />
+        <Title text={t("project.title")} />
         <ContainerGrid>
           <ProjectItem
           draggable={false}
