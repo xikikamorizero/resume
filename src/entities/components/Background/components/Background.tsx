@@ -23,34 +23,6 @@ export const Background = () => {
         rightM={"-100px"}
       />
       <ImageBack
-        image={image2}
-        width={"600px"}
-        widthM={"300px"}
-        height={"600px"}
-        heightM={"300px"}
-        backgroundSize={"600px"}
-        backgroundSizeM={"300px"}
-        top={"26%"}
-        topM={"32%"}
-        right={"50%"}
-        rightM={"50%"}
-        style={{ transform: 'translate(-50%)', left:'50%' }}
-      />
-      <ImageBack
-        image={image3}
-        width={"600px"}
-        widthM={"300px"}
-        height={"600px"}
-        heightM={"300px"}
-        backgroundSize={"600px"}
-        backgroundSizeM={"300px"}
-        top={"86%"}
-        topM={"90%"}
-        right={"50%"}
-        rightM={"50%"}
-        style={{transform: 'translate(-50%)', left:'50%' }}
-      />
-      <ImageBack
         image={image4}
         width={"450px"}
         widthM={"450px"}
@@ -60,8 +32,7 @@ export const Background = () => {
         backgroundSizeM={"430px"}
         top={"55%"}
         topM={"55%"}
-        right={"83%"}
-        rightM={"60%"}
+        style={{left:'-200px'}}
       />
     </Container>
   );

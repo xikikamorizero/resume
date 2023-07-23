@@ -44,7 +44,7 @@ const Container = styled.a<Props>`
 `;
 const Text = styled.div<{ color?: string }>`
   color: ${(props) => (props.color ? props.color : "var(--main)")};
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5em;
 
   -moz-user-select: none;

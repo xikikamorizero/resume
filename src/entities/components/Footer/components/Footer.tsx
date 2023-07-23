@@ -1,15 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { BlockContainer } from "../../../../shared";
+import { BlockContainer, ImageBack } from "../../../../shared";
 import iconT from "../assets/telegram.svg";
 import iconG from "../assets/github.svg";
 import iconI from "../assets/instagram.svg";
+import image from "../assets/image3.png";
 
 export const Footer = () => {
   const { t } = useTranslation("global");
   return (
     <BlockContainer id={'contacts'}>
+        <ImageBack
+        image={image}
+        width={"450px"}
+        widthM={"450px"}
+        height={"600px"}
+        heightM={"600px"}
+        backgroundSize={"430px"}
+        backgroundSizeM={"430px"}
+        top={"50%"}
+        topM={"59%"}
+        right={"50%"}
+        rightM={"50%"}
+        style={{ zIndex:'-1', transform: 'translate(-50%, -40%)', left:'50%' }}
+      />
       <Container>
         <IconContainer>
           <Icon draggable={false} icon={iconT} href={'https://t.me/xiki_mori'} target="_blank" />

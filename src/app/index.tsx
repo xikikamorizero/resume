@@ -39,7 +39,7 @@ const AppStyle = styled.div`
   justify-content: center;
   align-items: center;
 
-  overflow: hidden;
+  overflow-x: hidden;
 `;
 const Container = styled.div`
   width: 90%;
@@ -68,4 +68,12 @@ const ImageBack = styled.div<Props>`
   filter: drop-shadow(0px 0px 7px var(--shadow));
 `;
 
+const Test = styled.div`
+  width: 100%;
+  height: 100px;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+`
 export default App;

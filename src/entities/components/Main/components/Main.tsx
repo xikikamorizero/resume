@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { Button, MainContainer } from "../../../../shared";
-import image from "../assets/IMG_20230102_191327_531.jpg";
+import image from "../assets/image.jpg";
 
 export const Main = () => {
   const { t, i18n } = useTranslation("global");
