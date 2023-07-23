@@ -25,6 +25,7 @@ const App = () => {
             rotateM={"-170deg"}
             state={burger}
             icon={aboutMe}
+            draggable={false}
           />
         </Line>
         <Line right={"14.6px"} rotate={"25deg"} top={"-4px"} rightM={"30px"} rotateM={"120deg"} topM={"-53px"}>
@@ -35,6 +36,7 @@ const App = () => {
             rotateM={"-120deg"}
             state={burger}
             icon={portfolio}
+            draggable={false}
           />
         </Line>
         <Line right={"-14.6px"} rotate={"-25deg"} top={"-4px"} rightM={"29px"} rotateM={"60deg"} topM={"-18px"}>
@@ -45,6 +47,7 @@ const App = () => {
             rotateM={"-60deg"}
             state={burger}
             icon={skills}
+            draggable={false}
           />
         </Line>
         <Line right={"-34px"} rotate={"-80deg"} top={"-29px"} rightM={"6px"} rotateM={"10deg"} topM={"-1px"}>
@@ -55,6 +58,7 @@ const App = () => {
             rotateM={"-10deg"}
             state={burger}
             icon={contacts}
+            draggable={false}
           />
         </Line>
         <Control
@@ -192,6 +196,10 @@ const Burger = styled.div`
   right: 100px;
   z-index: 1;
 
+  -moz-user-select: none;
+-khtml-user-select: none;
+user-select: none;  
+
   @media (max-width: 700px) {
     top: 70px;
   right: 50px;
@@ -252,14 +260,23 @@ const Item = styled.a<StyleProps>`
 
   transform: rotate(${(props) => props.rotate});
 
-  @media (max-width: 700px) {
-    transform: rotate(${(props) => props.rotateM});
-  }
+  -moz-user-select: none;
+-khtml-user-select: none;
+user-select: none;  
 
   :hover {
     -webkit-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
     -moz-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
     box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+  }
+  :active {
+    -webkit-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+    -moz-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+  }
+
+  @media (max-width: 700px) {
+    transform: rotate(${(props) => props.rotateM});
   }
 `;
 const Control = styled.div<StyleProps>`
@@ -278,6 +295,10 @@ const Control = styled.div<StyleProps>`
   background-position: center;
   background-size: 26px;
 
+  -moz-user-select: none;
+-khtml-user-select: none;
+user-select: none;  
+
   cursor: pointer;
 
   -webkit-box-shadow: 0px 0px 10px ${(props) => (props.state ? "3px" : "0px")}
@@ -288,6 +309,11 @@ const Control = styled.div<StyleProps>`
     rgb(255, 255, 255);
 
   :hover {
+    -webkit-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+    -moz-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+  }
+  :active {
     -webkit-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
     -moz-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
     box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
