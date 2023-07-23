@@ -74,7 +74,7 @@ const IconsContainer = styled.div`
 const Title = styled.div`
   width: 100%;
   max-width: 1000px;
-  min-height: 250px;
+  min-height: 310px;
   color: var(--textColorHeader);
   font-size: 72px;
   line-height: 1.1em;
