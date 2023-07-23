@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const AboutMe = () => {
   return (
-    <BlockContainer>
+    <BlockContainer id={'aboutMe'}>
       <Container>
         <Title text={"About Me"} />
         <TextContainer>

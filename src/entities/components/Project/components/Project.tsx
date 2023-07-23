@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
+import { useInView } from 'react-intersection-observer';
 import { BlockContainer, Title } from "../../../../shared";
 import styled from "styled-components";
 import image1 from "../assets/project1.png";

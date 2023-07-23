@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const Skills = () => {
   return (
-    <BlockContainer>
+    <BlockContainer id={'skills'}>
       <Container>
         <Title text={"Skills"} />
         <ContainerGrid>

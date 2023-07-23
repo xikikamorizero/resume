@@ -11,7 +11,7 @@ type Props = {
 
 export const Button = ({ ...props }: Props) => {
   return (
-    <Container href={props.href} width={props.width} height={props.height} color={props.color}>
+    <Container draggable={false} href={props.href} width={props.width} height={props.height} color={props.color}>
       <Text>{props.text}</Text>
     </Container>
   );
