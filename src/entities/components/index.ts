@@ -3,4 +3,6 @@ export * from './Main';
 export * from './AboutMe';
 export * from './Skills';
 export * from './Project';
+export * from './Menu';
+export * from './Background';
 export * from './Footer';

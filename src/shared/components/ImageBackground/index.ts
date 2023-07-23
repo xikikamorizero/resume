@@ -1,0 +1,1 @@
+export {ImageBack} from './components/ImageBackground';

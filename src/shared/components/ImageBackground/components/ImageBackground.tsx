@@ -1,22 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { AboutMe, Main, Skills, Project, Footer, Menu, Background } from "../entities";
-
-const App = () => {
-  return (
-    <AppStyle>
-      <Menu />
-      <Background />
-      <Container>
-        <Main />
-        <AboutMe />
-        <Skills />
-        <Project />
-        <Footer />
-      </Container>
-    </AppStyle>
-  );
-};
 
 type Props = {
   image?: string;
@@ -32,19 +15,8 @@ type Props = {
   rightM?: string;
   backgroundSizeM?: string;
 };
-const AppStyle = styled.div`
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  overflow: hidden;
-`;
-const Container = styled.div`
-  width: 90%;
-`;
-const ImageBack = styled.div<Props>`
+export const ImageBack = styled.div<Props>`
   position: absolute;
   top: ${(props) => props.top};
   right: ${(props) => props.right};
@@ -67,5 +39,3 @@ const ImageBack = styled.div<Props>`
 
   filter: drop-shadow(0px 0px 7px var(--shadow));
 `;
-
-export default App;
