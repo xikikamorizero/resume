@@ -10,11 +10,11 @@ export const AboutMe = () => {
     <BlockContainer id={"aboutMe"}>
          <ImageBack
         image={image2}
-        width={"600px"}
+        width={"450px"}
         widthM={"300px"}
-        height={"600px"}
+        height={"450px"}
         heightM={"300px"}
-        backgroundSize={"600px"}
+        backgroundSize={"450px"}
         backgroundSizeM={"300px"}
         top={"50%"}
         topM={"50%"}

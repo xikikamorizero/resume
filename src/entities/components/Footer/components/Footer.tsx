@@ -14,13 +14,13 @@ export const Footer = () => {
         <ImageBack
         image={image}
         width={"450px"}
-        widthM={"450px"}
+        widthM={"340px"}
         height={"600px"}
         heightM={"600px"}
         backgroundSize={"430px"}
-        backgroundSizeM={"430px"}
+        backgroundSizeM={"340px"}
         top={"50%"}
-        topM={"59%"}
+        topM={"50%"}
         right={"50%"}
         rightM={"50%"}
         style={{ zIndex:'-1', transform: 'translate(-50%, -40%)', left:'50%' }}

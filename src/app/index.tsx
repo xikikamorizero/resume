@@ -1,48 +1,50 @@
-import React, { Suspense, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import {
-    AboutMe,
-    Main,
-    Skills,
-    Project,
-    Footer,
-    Menu,
-    Background,
-} from "../entities";
+import { AboutMe, Main, Skills, Project, Footer, Menu } from "../entities";
+import { ImageBack } from "../shared";
+import image1 from "./assets/image1.png";
+import image2 from "./assets/image4.png";
 
 const App = () => {
     return (
         <AppStyle>
             <Menu />
-            <Background />
+            <ImageBack
+                image={image1}
+                width={"600px"}
+                widthM={"400px"}
+                height={"370px"}
+                heightM={"300px"}
+                backgroundSize={"600px"}
+                backgroundSizeM={"400px"}
+                top={"-100px"}
+                topM={"-50px"}
+                right={"-200px"}
+                rightM={"-100px"}
+            />
+            <ImageBack
+                image={image2}
+                width={"450px"}
+                widthM={"450px"}
+                height={"600px"}
+                heightM={"600px"}
+                backgroundSize={"430px"}
+                backgroundSizeM={"430px"}
+                top={"50%"}
+                topM={"50%"}
+                style={{ left: "-200px" }}
+            />
             <Container>
                 <Main />
                 <AboutMe />
                 <Skills />
                 <Project />
-                <a href="src\app\assets\resume.pdf" download="resume.pdf">
-                    Скачать резюме
-                </a>
                 <Footer />
             </Container>
         </AppStyle>
     );
 };
 
-type Props = {
-    image?: string;
-    width?: string;
-    height?: string;
-    top?: string;
-    right?: string;
-    backgroundSize?: string;
-
-    widthM?: string;
-    heightM?: string;
-    topM?: string;
-    rightM?: string;
-    backgroundSizeM?: string;
-};
 const AppStyle = styled.div`
     position: relative;
     width: 100%;
@@ -54,37 +56,5 @@ const AppStyle = styled.div`
 `;
 const Container = styled.div`
     width: 90%;
-`;
-const ImageBack = styled.div<Props>`
-    position: absolute;
-    top: ${(props) => props.top};
-    right: ${(props) => props.right};
-    width: ${(props) => props.width};
-    height: ${(props) => props.height};
-
-    background-image: url(${(props) => (props.image ? props.image : "")});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: ${(props) => props.backgroundSize};
-
-    @media (max-width: 700px) {
-        width: ${(props) => props.widthM};
-        height: ${(props) => props.heightM};
-        background-size: ${(props) => props.backgroundSizeM};
-
-        top: ${(props) => props.topM};
-        right: ${(props) => props.rightM};
-    }
-
-    filter: drop-shadow(0px 0px 7px var(--shadow));
-`;
-
-const Test = styled.div`
-    width: 100%;
-    height: 100px;
-    background-color: red;
-    position: absolute;
-    top: 0;
-    left: 0;
 `;
 export default App;

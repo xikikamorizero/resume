@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { Button, MainContainer } from "../../../../shared";
+import { Button, MainContainer, ImageBack } from "../../../../shared";
 import image from "../assets/image.jpg";
+import image1 from '../assets/image1.png';
 
 export const Main = () => {
   const { t, i18n } = useTranslation("global");
