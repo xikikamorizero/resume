@@ -39,6 +39,7 @@ const App = () => {
                 <AboutMe />
                 <Skills />
                 <Project />
+                <a href="https://resume-amber-theta.vercel.app/src/app/assets/resume.pdf" download="resume.pdf">скачать</a>
                 <Footer />
             </Container>
         </AppStyle>
