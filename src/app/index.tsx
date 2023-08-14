@@ -39,7 +39,7 @@ const App = () => {
                 <AboutMe />
                 <Skills />
                 <Project />
-                <a href="src/app/assets/resume.pdf" download="resume.pdf">скачать</a>
+                <a href="./assets/resume.pdf" download="resume.pdf">скачать</a>
                 <Footer />
             </Container>
         </AppStyle>
