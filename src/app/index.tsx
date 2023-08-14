@@ -11,17 +11,6 @@ import {
 } from "../entities";
 
 const App = () => {
-
-  const handleDownload = () => {
-    // Создаем ссылку на файл
-    const fileUrl = '/assets/resume.pdf';
-    
-    // Создаем ссылку для скачивания
-    const link = document.createElement('a');
-    link.href = fileUrl;
-    link.download = 'resume.pdf'; // Указываем имя файла для скачивания
-    link.click();
-  }
     return (
         <AppStyle>
             <Menu />
@@ -31,7 +20,9 @@ const App = () => {
                 <AboutMe />
                 <Skills />
                 <Project />
-                <button onClick={handleDownload}>Скачать файл</button>
+                <a href="/assets/resume.pdf" download="resume.pdf">
+                    Скачать резюме
+                </a>
                 <Footer />
             </Container>
         </AppStyle>
