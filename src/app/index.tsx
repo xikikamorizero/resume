@@ -20,7 +20,7 @@ const App = () => {
                 <AboutMe />
                 <Skills />
                 <Project />
-                <a href="/assets/resume.pdf" download="resume.pdf">
+                <a href="src\app\assets\resume.pdf" download="resume.pdf">
                     Скачать резюме
                 </a>
                 <Footer />
