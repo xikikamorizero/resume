@@ -14,5 +14,11 @@
     "skills.mobx.text":"Suitable for small but fast sites",
     "skills.axios.text":"Helps when using Rest API requests",
     "project.title":"Projects",
-    "footer.title":"© 2023 Kogay Artyom React Js Developer."
+    "footer.title":"© 2023 Kogay Artyom React Js Developer.",
+
+    "button.resume.down":"Resume",
+    "menu.aboutMe":"about me",
+    "menu.portfolio":"my projects",
+    "menu.skills":"my skills",
+    "menu.contacts":"contacts"
 }

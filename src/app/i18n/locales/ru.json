@@ -14,5 +14,11 @@
     "skills.mobx.text": "Подходит для быстрых небольших сайтов",
     "skills.axios.text": "Помогает при использовании запросов Rest API",
     "project.title": "Проекты",
-    "footer.title": "© 2023 Когай Артем, React Js Разработчик."
+    "footer.title": "© 2023 Когай Артем, React Js Разработчик.",
+    
+    "button.resume.down":"Резюме",
+    "menu.aboutMe":"обо мне",
+    "menu.portfolio":"мои проекты",
+    "menu.skills":"мои навыки",
+    "menu.contacts":"контакты"
 }

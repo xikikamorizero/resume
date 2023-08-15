@@ -1,132 +1,188 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { Button, MainContainer, ImageBack } from "../../../../shared";
+import { Button, MainContainer } from "../../../../shared";
 import image from "../assets/image.jpg";
-import image1 from '../assets/image1.png';
+import icon1 from "../assets/download.png";
 
 export const Main = () => {
-  const { t, i18n } = useTranslation("global");
-  const [lang, setLang] = useState("ru");
+    const { t, i18n } = useTranslation("global");
+    const [lang, setLang] = useState("ru");
 
-  const Click =()=>{
-    if(lang==='ru'){
-      setLang("en")
-    }
-    else{
-      setLang("ru")
-    }
-  }
+    const Click = () => {
+        if (lang === "ru") {
+            setLang("en");
+        } else {
+            setLang("ru");
+        }
+    };
 
-  useEffect(()=>{
-    i18n.changeLanguage(lang);
-  },[lang])
-  return (
-    <MainContainer>
-      <Banner>
-        <IconsContainer>
-          <Icons draggable={false} style={{ right: 0 }} />
-          <Icons draggable={false} image={image} style={{ left: 0 }} />
-        </IconsContainer>
-        <Title>{t("main.title")}</Title>
-        <ContainerButton>
-          <Button
-            width={"128px"}
-            height={"40px"}
-            color={"var(--white)"}
-            text={t("main.button")}
-            href={"#portfolio"}
-          />
-          <LangBlock>
-            <Lang anim={lang==='ru'} onClick={()=>{Click()}}>{lang}</Lang>
-          </LangBlock>
-        </ContainerButton>
-      </Banner>
-    </MainContainer>
-  );
+    useEffect(() => {
+        i18n.changeLanguage(lang);
+    }, [lang]);
+
+    return (
+        <MainContainer>
+            <Banner>
+                <IconsContainer>
+                    <Icons draggable={false} style={{ right: 0 }} />
+                    <Icons
+                        draggable={false}
+                        image={image}
+                        style={{ left: 0 }}
+                    />
+                </IconsContainer>
+                <Title>{t("main.title")}</Title>
+                <ContainerButton>
+                    {/* <Button
+                        width={"128px"}
+                        height={"40px"}
+                        color={"var(--white)"}
+                        text={t("main.button")}
+                        href={"#portfolio"}
+                    /> */}
+                    <Download
+                        href={process.env.PUBLIC_URL + "resume.pdf"}
+                        download="resume.pdf"
+                    >
+                        {t("button.resume.down")}
+                        <Icon src={icon1} />
+                    </Download>
+                    <LangBlock>
+                        <Lang
+                            anim={lang === "ru"}
+                            onClick={() => {
+                                Click();
+                            }}
+                        >
+                            {lang}
+                        </Lang>
+                    </LangBlock>
+                </ContainerButton>
+            </Banner>
+        </MainContainer>
+    );
 };
 
 const Banner = styled.div`
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 `;
 const Icons = styled.div<{ image?: string }>`
-  position: absolute;
-  top: 0;
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
+    position: absolute;
+    top: 0;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
 
-  background-color: var(--iconsColor);
+    background-color: var(--iconsColor);
 
-  background-image: url(${(props) => (props.image ? props.image : "")});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 128px;
+    background-image: url(${(props) => (props.image ? props.image : "")});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 128px;
 `;
 const IconsContainer = styled.div`
-  position: relative;
-  width: 193px;
-  height: 128px;
+    position: relative;
+    width: 193px;
+    height: 128px;
 `;
 const Title = styled.div`
-  width: 100%;
-  max-width: 1000px;
-  min-height: 310px;
-  color: var(--textColorHeader);
-  font-size: 72px;
-  line-height: 1.1em;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 310px;
+    color: var(--textColorHeader);
+    font-size: 72px;
+    line-height: 1.1em;
 
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 
-  @media (max-width: 700px) {
-    font-size: 40px;
-  }
+    @media (max-width: 700px) {
+        font-size: 40px;
+    }
 `;
 //
 const ContainerButton = styled.div`
-  display: flex;
-  gap: 30px;
+    display: flex;
+    gap: 30px;
 `;
 const LangBlock = styled.div`
-  position: relative;
-  display: flex;
-  width: 80px;
-  border-radius: 22px;
-  background-color: #b2b2c3c9;
+    position: relative;
+    display: flex;
+    width: 80px;
+    height: 40px;
+    border-radius: 22px;
+    background-color: #b2b2c3c9;
 
-  -webkit-box-shadow: 0px 0px 10px 2px rgb(255, 255, 255) inset;
-  -moz-box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.978) inset;
-  box-shadow: 0px 0px 10px 2px rgb(255, 255, 255) inset;
+    -webkit-box-shadow: 0px 0px 10px 2px rgb(255, 255, 255) inset;
+    -moz-box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.978) inset;
+    box-shadow: 0px 0px 10px 2px rgb(255, 255, 255) inset;
 `;
-const Lang = styled.div<{anim:boolean}>`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  top: 0;
-  left: ${(props)=>props.anim? 0 : 'calc(100% - 40px)'} ;
-  background-color: var(--white);
+const Lang = styled.div<{ anim: boolean }>`
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 0;
+    left: ${(props) => (props.anim ? 0 : "calc(100% - 40px)")};
+    background-color: var(--white);
 
-  text-transform: uppercase;
+    text-transform: uppercase;
 
-  -webkit-box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
-  -moz-box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
-  box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
+    -webkit-box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
+    -moz-box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
+    box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
 
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 
-  transition: left 0.3s linear;
+    transition: left 0.3s linear;
 
-  cursor: pointer;
+    cursor: pointer;
+`;
+const Download = styled.a`
+    width: max-content;
+    width: 120px;
+    height: 40px;
+    text-decoration: none;
+    background-color: var(--white);
+    color:black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 22px;
+
+    font-size: 18px;
+    line-height: 1.5em;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+
+    cursor: pointer;
+
+    -webkit-box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.2);
+
+    :active {
+        -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+        -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+        box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+    }
+`;
+const Icon = styled.img`
+    width: 20px;
+    height: 20px;
 `;
