@@ -135,6 +135,8 @@ const Lang = styled.div<{ anim: boolean }>`
     left: ${(props) => (props.anim ? 0 : "calc(100% - 40px)")};
     background-color: var(--white);
 
+    -webkit-tap-highlight-color: transparent;
+
     text-transform: uppercase;
 
     -webkit-box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
@@ -156,6 +158,8 @@ const Download = styled.a`
     text-decoration: none;
     background-color: var(--white);
     color:black;
+
+    -webkit-tap-highlight-color: transparent;
 
     display: flex;
     justify-content: center;
