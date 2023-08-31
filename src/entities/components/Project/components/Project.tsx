@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { BlockContainer, Title } from "../../../../shared";
 import styled from "styled-components";
 import image1 from "../assets/project1.png";
-import image2 from "../assets/project2.png";
+import image2 from "../assets/project3.png";
 
 export const Project = () => {
   const { t } = useTranslation("global");
@@ -21,7 +21,7 @@ export const Project = () => {
           <ProjectItem
            draggable={false}
             image={image2}
-            href={"https://fenix-sable.vercel.app/"}
+            href={"https://space-project-eta.vercel.app/"}
             target="_blank"
           />
         </ContainerGrid>
@@ -41,6 +41,10 @@ const ContainerGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2vw;
+
+  @media (max-width:500px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const ProjectItem = styled.a<{ image?: string }>`
   width: 100%;
@@ -53,4 +57,12 @@ const ProjectItem = styled.a<{ image?: string }>`
   background-size: contain;
 
   cursor: pointer;
+
+  @media (max-width:1000px) {
+    border-radius: 10px;
+  }
+
+  @media (max-width:500px) {
+    height: 50.6vw;
+  }
 `;
