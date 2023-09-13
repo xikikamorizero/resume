@@ -46,6 +46,8 @@ export const Skills = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 40px;
 `;
 const ContainerGrid = styled.div`
@@ -65,8 +67,6 @@ const ContainerSkill = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-
-  /* background-color: red; */
 `;
 
 type Skill = {

@@ -51,5 +51,6 @@ const TextContainer = styled.div`
 
   @media (max-width: 911px) {
     gap: 40px;
+    
   }
 `;

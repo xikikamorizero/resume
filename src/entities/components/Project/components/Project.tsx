@@ -14,16 +14,18 @@ export const Project = () => {
         <ContainerGrid>
           <ProjectItem
           draggable={false}
-            image={image1}
             href={"https://screen-realm.vercel.app/"}
             target="_blank"
-          />
+          >
+            <Image src={image1} alt={'screen-realm'} draggable={false} />
+          </ProjectItem>
           <ProjectItem
-           draggable={false}
-            image={image2}
+          draggable={false}
             href={"https://space-project-eta.vercel.app/"}
             target="_blank"
-          />
+          >
+            <Image src={image2} alt={'space-project'} draggable={false} />
+          </ProjectItem>
         </ContainerGrid>
       </Container>
     </BlockContainer>
@@ -42,27 +44,20 @@ const ContainerGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 2vw;
 
-  @media (max-width:500px) {
+  @media (max-width:700px) {
     grid-template-columns: 1fr;
   }
 `;
-const ProjectItem = styled.a<{ image?: string }>`
+const ProjectItem = styled.a`
+width: 100%;
+`;
+const Image = styled.img`
   width: 100%;
-  height: 24.8vw;
   border-radius: 15px;
-
-  background-image: url(${(props) => props.image});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 
   cursor: pointer;
 
   @media (max-width:1000px) {
     border-radius: 10px;
   }
-
-  @media (max-width:500px) {
-    height: 50.6vw;
-  }
-`;
+`
