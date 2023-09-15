@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import menu from "../assets/burger.svg";
-import exit from "../assets/exit.svg";
 import portfolio from "../assets/portfolio.png";
 import contacts from "../assets/contacts.png";
 import aboutMe from "../assets/aboutMe.png";
 import skills from "../assets/skills.png";
+import { motion } from "framer-motion";
 
 export const Menu = () => {
     const [burger, setBurger] = useState(false);
@@ -17,7 +16,11 @@ export const Menu = () => {
         setBurger(false);
     };
     return (
-        <Burger>
+        <Burger
+            initial={{ y: -500, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ type:'spring', duration: 0.7, delay: 1 }}
+        >
             <Line
                 right={"34px"}
                 rotate={"80deg"}
@@ -107,17 +110,21 @@ export const Menu = () => {
                 />
             </Line>
             <Control
+                onMouseEnter={() => {
+                    setBurger(true);
+                }}
                 onClick={() => {
                     setBurger(!burger);
                 }}
-                icon={burger ? exit : menu}
                 state={burger}
-            />
+            >
+                <Icon active={burger} />
+            </Control>
         </Burger>
     );
 };
 
-const Burger = styled.div`
+const Burger = styled(motion.div)`
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -212,10 +219,13 @@ const Item = styled.a<StyleProps>`
         transform: rotate(${(props) => props.rotateM});
     }
 `;
-const Control = styled.div<StyleProps>`
+const Control = styled.div<{ state: boolean }>`
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     background: white;
 
@@ -224,11 +234,6 @@ const Control = styled.div<StyleProps>`
     right: 0;
 
     -webkit-tap-highlight-color: transparent;
-
-    background-image: url(${(props) => props.icon});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 26px;
 
     -moz-user-select: none;
     -khtml-user-select: none;
@@ -252,5 +257,37 @@ const Control = styled.div<StyleProps>`
         -webkit-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
         -moz-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
         box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+    }
+`;
+const Icon = styled.div<{ active:boolean }>`
+    width: 27px;
+    height: 3px;
+    background-color: black;
+    position: relative;
+    transition: transform 0.2s ease;
+
+    border-radius: 15px;
+
+    transform: rotate(${(props) => (props.active ? 45 : 0)}deg);
+
+    &:before,
+    &:after {
+        content: "";
+        width: 100%;
+        height: 3px;
+        background-color: black;
+        position: absolute;
+        transition: transform 0.2s ease;
+        border-radius: 15px;
+    }
+
+    &:before {
+        top: ${(props) => (props.active ? 0 : -9)}px;
+        transform: rotate(${(props) => (props.active ? 90 : 0)}deg);
+    }
+
+    &:after {
+        bottom: ${(props) => (props.active ? 0 : -9)}px;
+        transform: rotate(${(props) => (props.active ? 90 : 0)}deg);
     }
 `;

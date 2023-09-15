@@ -1,25 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { Button, MainContainer } from "../../../../shared";
+import { MainContainer } from "../../../../shared";
 import image from "../assets/image.jpg";
 import icon1 from "../assets/download.png";
+import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
 
 export const Main = () => {
     const { t, i18n } = useTranslation("global");
-    const [lang, setLang] = useState("ru");
+    const controlsText = useAnimationControls();
+    let title = t("main.title").split("");
 
     const Click = () => {
-        if (lang === "ru") {
-            setLang("en");
+        if (i18n.language === "ru") {
+            i18n.changeLanguage("en");
         } else {
-            setLang("ru");
+            i18n.changeLanguage("ru");
         }
     };
 
     useEffect(() => {
-        i18n.changeLanguage(lang);
-    }, [lang]);
+        controlsText.start({ opacity: 0 });  
+    }, [i18n.language]);
+
+    const [isOpen, setIsOpen] = useState(true);
 
     return (
         <MainContainer>
@@ -27,20 +31,32 @@ export const Main = () => {
                 <IconsContainer>
                     <Icons draggable={false} style={{ right: 0 }} />
                     <Icons
+                        initial={{ x: -150, y: 0 }}
+                        animate={isOpen?{ x: 4, y: 0 }:{}}
+                        transition={{ type: "spring", delay: 0.4 }}
                         draggable={false}
                         image={image}
                         style={{ left: 0 }}
                     />
                 </IconsContainer>
-                <Title>{t("main.title")}</Title>
+                <Title>
+                    {title.map((a, i) => (
+                        <motion.text
+                            key={i}
+                            initial={{
+                                opacity: 0,
+                            }}
+                            animate={controlsText}
+                            transition={{
+                                duration: 0.5 + i / 40,
+                                delay: 0,
+                            }}
+                        >
+                            {a}
+                        </motion.text>
+                    ))}
+                </Title>
                 <ContainerButton>
-                    {/* <Button
-                        width={"128px"}
-                        height={"40px"}
-                        color={"var(--white)"}
-                        text={t("main.button")}
-                        href={"#portfolio"}
-                    /> */}
                     <Download
                         href={process.env.PUBLIC_URL + "resume.pdf"}
                         download="resume.pdf"
@@ -50,19 +66,39 @@ export const Main = () => {
                     </Download>
                     <LangBlock>
                         <Lang
-                            anim={lang === "ru"}
+                            anim={i18n.language === "ru"}
                             onClick={() => {
                                 Click();
                             }}
                         >
-                            {lang}
+                            {i18n.language}
                         </Lang>
                     </LangBlock>
+                    <AnimatePresence>
+                        {isOpen && (
+                            <MyCustomComponent
+                                drag
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 2 }}
+                                style={{ background: "#ffffff", width: "10px" }}
+                            ></MyCustomComponent>
+                        )}
+                    </AnimatePresence>
+                    <button
+                        onClick={() => {
+                            setIsOpen(!isOpen);
+                        }}
+                    >
+                        OK
+                    </button>
                 </ContainerButton>
             </Banner>
         </MainContainer>
     );
 };
+const MyCustomComponent = styled(motion.div)<{ active?: string }>``;
 
 const Banner = styled.div`
     position: relative;
@@ -71,7 +107,7 @@ const Banner = styled.div`
     flex-direction: column;
     gap: 40px;
 `;
-const Icons = styled.div<{ image?: string }>`
+const Icons = styled(motion.div)<{ image?: string }>`
     position: absolute;
     top: 0;
     width: 128px;
@@ -157,7 +193,7 @@ const Download = styled.a`
     height: 40px;
     text-decoration: none;
     background-color: var(--white);
-    color:black;
+    color: black;
 
     -webkit-tap-highlight-color: transparent;
 

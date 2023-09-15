@@ -29,7 +29,7 @@ export const BlockContainer = ({ ...props }: Props) => {
 const Container = styled.div<{ anim?: boolean }>`
     position: relative;
     width: 100%;
-    padding: 100px 0 100px 0;
+    padding: 100px 0;
 
     opacity: ${(props) => (props.anim ? 1 : 0)};
 

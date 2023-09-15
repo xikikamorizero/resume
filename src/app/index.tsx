@@ -4,6 +4,7 @@ import { AboutMe, Main, Skills, Project, Footer, Menu } from "../entities";
 import { ImageBack } from "../shared";
 import image1 from "./assets/image1.png";
 import image2 from "./assets/image4.png";
+import {TestBurgerFramerMotion} from '../entities/components/FramerMotion/Burger'
 
 const App = () => {
     return (
@@ -40,6 +41,7 @@ const App = () => {
                 <Skills />
                 <Project />
                 <Footer />
+                {/* <TestBurgerFramerMotion /> */}
             </Container>
         </AppStyle>
     );
