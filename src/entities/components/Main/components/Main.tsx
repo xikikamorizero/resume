@@ -33,7 +33,7 @@ export const Main = () => {
                     <Icons
                         initial={{ x: -150, y: 0 }}
                         animate={isOpen?{ x: 4, y: 0 }:{}}
-                        transition={{ type: "spring", delay: 0.4 }}
+                        transition={{ type: "spring", delay: 0.5 }}
                         draggable={false}
                         image={image}
                         style={{ left: 0 }}
@@ -74,25 +74,25 @@ export const Main = () => {
                             {i18n.language}
                         </Lang>
                     </LangBlock>
-                    <AnimatePresence>
+                    {/* <AnimatePresence>
                         {isOpen && (
                             <MyCustomComponent
                                 drag
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
+                                exit={{ opacity: 0}}
                                 transition={{ duration: 2 }}
                                 style={{ background: "#ffffff", width: "10px" }}
                             ></MyCustomComponent>
                         )}
-                    </AnimatePresence>
-                    <button
+                    </AnimatePresence> */}
+                    {/* <button
                         onClick={() => {
                             setIsOpen(!isOpen);
                         }}
                     >
                         OK
-                    </button>
+                    </button> */}
                 </ContainerButton>
             </Banner>
         </MainContainer>
@@ -128,7 +128,7 @@ const IconsContainer = styled.div`
 `;
 const Title = styled.div`
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     min-height: 310px;
     color: var(--textColorHeader);
     font-size: 72px;
