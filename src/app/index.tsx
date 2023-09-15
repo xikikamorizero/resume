@@ -5,6 +5,7 @@ import { ImageBack } from "../shared";
 import image1 from "./assets/image1.png";
 import image2 from "./assets/image4.png";
 import {TestBurgerFramerMotion} from '../entities/components/FramerMotion/Burger'
+import {Test} from '../entities/components/FramerMotion/Test'
 
 const App = () => {
     return (
@@ -42,6 +43,7 @@ const App = () => {
                 <Project />
                 <Footer />
                 {/* <TestBurgerFramerMotion /> */}
+                {/* <Test /> */}
             </Container>
         </AppStyle>
     );
