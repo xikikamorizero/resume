@@ -1,10 +1,10 @@
 import { useCycle, motion, AnimatePresence } from "framer-motion";
-import { useEffect, useRef } from "react";
-import styled from 'styled-components'
+import { useEffect, useRef, useState } from "react";
+import styled from "styled-components";
 
 const sidebar = {
-    open: (height = 1000) => ({
-        clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    open: (width = 1000) => ({
+        clipPath: `circle(${width * 2 + 200}px at calc(100% - 40px) 40px)`,
         transition: {
             type: "spring",
             stiffness: 20,
@@ -12,7 +12,7 @@ const sidebar = {
         },
     }),
     closed: {
-        clipPath: "circle(30px at 40px 40px)",
+        clipPath: "circle(30px at calc(100% - 40px) 40px)",
         transition: {
             delay: 0.5,
             type: "spring",
@@ -26,8 +26,14 @@ export const TestBurgerFramerMotion = () => {
     const [isOpen, toggleOpen] = useCycle(false, true);
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);
+    const [animate, setAnimate] = useState(false);
 
-    console.log(isOpen);
+    const BurgerChange = () => {
+        if (!animate) {
+            toggleOpen();
+        }
+    };
+
     return (
         <Nav
             initial={false}
@@ -37,8 +43,20 @@ export const TestBurgerFramerMotion = () => {
         >
             <Navigation isOpen={isOpen} />
 
-            <Background variants={sidebar} />
-            <MenuToggle toggle={() => toggleOpen()} />
+            <Background
+                variants={sidebar}
+                onAnimationComplete={(e) => {
+                    if (e == "closed") {
+                        setAnimate(false);
+                    }
+                }}
+                onAnimationStart={(e) => {
+                    if (e == "closed") {
+                        setAnimate(true);
+                    }
+                }}
+            />
+            <MenuToggle toggle={() => BurgerChange()} />
         </Nav>
     );
 };
@@ -48,6 +66,7 @@ const Nav = styled(motion.nav)`
     left: 0;
     bottom: 0;
     width: 300px;
+    /* transform: scale(-1, 1); */
 `;
 
 const useDimensions = (ref: any) => {
@@ -64,33 +83,56 @@ const useDimensions = (ref: any) => {
 const Background = styled(motion.div)`
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     bottom: 0;
     width: 300px;
     background: #fff;
 `;
 const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
 
+const Livar = {
+    initial: {
+        y: -50,
+        opacity: 0,
+    },
+    animate: (custom: number) => ({
+        y: 0,
+        opacity: 1,
+
+        transition: {
+            delay: 0.1 * custom,
+        },
+    }),
+    exit: (custom: number) => ({
+        y: -50,
+        opacity: 0,
+
+        transition: {
+            delay: 0.1 * custom,
+        },
+    }),
+};
+
 const MenuItem = ({ i, isOpen }: any) => {
     const style = { border: `2px solid ${colors[i]}` };
-    console.log(isOpen)
     return (
         <div>
             <AnimatePresence>
-            {isOpen && (
-                <Li
-                    initial={{ y: -50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -50, opacity: 0 }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                transition={{delay:0.1 * i}}
-                >
-                    <Icon style={style} />
-                    <Text style={style} />
-                </Li>
-             )}
-             </AnimatePresence>
+                {isOpen && (
+                    <Li
+                        initial={"initial"}
+                        animate={"animate"}
+                        exit={"exit"}
+                        variants={Livar}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        custom={i}
+                    >
+                        <Icon style={style} />
+                        <Text style={style} />
+                    </Li>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
@@ -162,7 +204,7 @@ const Button = styled.button`
     cursor: pointer;
     position: absolute;
     top: 18px;
-    left: 15px;
+    right: 15px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
