@@ -27,7 +27,7 @@ export const Footer = () => {
       />
       <Container>
         <IconContainer>
-          <Icon draggable={false} icon={iconT} href={'https://t.me/xiki_mori'} target="_blank" />
+          <Icon draggable={false} icon={iconT} href={'https://t.me/Xikimori'} target="_blank" />
           <Icon draggable={false} icon={iconI} href={'https://instagram.com/xikikamori_01?igshid=MzNlNGNkZWQ4Mg=='} style={{backgroundColor:'var(--white)', backgroundSize:'27px'}} target="_blank" />
           <Icon draggable={false} icon={iconG} href={'https://github.com/xikikamorizero'} target="_blank" />
         </IconContainer>
