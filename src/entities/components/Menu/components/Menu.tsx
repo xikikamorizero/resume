@@ -19,7 +19,7 @@ export const Menu = () => {
         <Burger
             initial={{ y: -500, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ type:'spring', duration: 0.7, delay: 1 }}
+            transition={{ type: "spring", duration: 0.7, delay: 1 }}
         >
             <Line
                 right={"34px"}
@@ -169,8 +169,6 @@ const Line = styled.div<StyleProps>`
 
     transform: rotate(${(props) => props.rotate});
 
-    /* background-color: red; */
-
     @media (max-width: 700px) {
         top: ${(props) => props.topM};
         right: ${(props) => props.rightM};
@@ -182,7 +180,7 @@ const Item = styled.a<StyleProps>`
     height: 50px;
     border-radius: 50%;
 
-    background: white;
+    background: var(--secondary);
 
     position: absolute;
     top: ${(props) => (props.state ? "calc(100% - 50px)" : 0)};
@@ -205,14 +203,14 @@ const Item = styled.a<StyleProps>`
     -webkit-tap-highlight-color: transparent;
 
     :hover {
-        -webkit-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
-        -moz-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
-        box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+        -webkit-box-shadow: 0px 0px 10px 3px var(--shadow_widget);
+        -moz-box-shadow: 0px 0px 10px 3px var(--shadow_widget);
+        box-shadow: 0px 0px 10px 3px var(--shadow_widget);
     }
     :active {
-        -webkit-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
-        -moz-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
-        box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+        -webkit-box-shadow: 0px 0px 10px 3px var(--shadow_widget);
+        -moz-box-shadow: 0px 0px 10px 3px var(--shadow_widget);
+        box-shadow: 0px 0px 10px 3px var(--shadow_widget);
     }
 
     @media (max-width: 700px) {
@@ -227,7 +225,7 @@ const Control = styled.div<{ state: boolean }>`
     justify-content: center;
     align-items: center;
 
-    background: white;
+    background: var(--secondary);
 
     position: absolute;
     top: 0;
@@ -242,27 +240,27 @@ const Control = styled.div<{ state: boolean }>`
     cursor: pointer;
 
     -webkit-box-shadow: 0px 0px 10px ${(props) => (props.state ? "3px" : "0px")}
-        rgb(255, 255, 255);
+        var(--shadow_widget);
     -moz-box-shadow: 0px 0px 10px ${(props) => (props.state ? "3px" : "0px")}
-        rgb(255, 255, 255);
+        var(--shadow_widget);
     box-shadow: 0px 0px 10px ${(props) => (props.state ? "3px" : "0px")}
-        rgb(255, 255, 255);
+        var(--shadow_widget);
 
     :hover {
-        -webkit-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
-        -moz-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
-        box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+        -webkit-box-shadow: 0px 0px 10px 3px var(--shadow_widget);
+        -moz-box-shadow: 0px 0px 10px 3px var(--shadow_widget);
+        box-shadow: 0px 0px 10px 3px var(--shadow_widget);
     }
     :active {
-        -webkit-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
-        -moz-box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
-        box-shadow: 0px 0px 10px 3px rgb(255, 255, 255);
+        -webkit-box-shadow: 0px 0px 10px 3px var(--shadow_widget);
+        -moz-box-shadow: 0px 0px 10px 3px var(--shadow_widget);
+        box-shadow: 0px 0px 10px 3px var(--shadow_widget);
     }
 `;
-const Icon = styled.div<{ active:boolean }>`
+const Icon = styled.div<{ active: boolean }>`
     width: 27px;
     height: 3px;
-    background-color: black;
+    background-color: var(--iconColor);
     position: relative;
     transition: transform 0.2s ease;
 
@@ -275,7 +273,7 @@ const Icon = styled.div<{ active:boolean }>`
         content: "";
         width: 100%;
         height: 3px;
-        background-color: black;
+        background-color: var(--iconColor);
         position: absolute;
         transition: transform 0.2s ease;
         border-radius: 15px;

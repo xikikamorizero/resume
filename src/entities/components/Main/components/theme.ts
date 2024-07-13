@@ -1,0 +1,29 @@
+export const darkTheme = {
+    '--main': '#000000',
+    '--secondary': '#ffffff',
+    '--textColorHeader': '#f0f2f3b4',
+    '--white': '#ffffff',
+    '--iconsColor': '#ffffff',
+    '--iconColor': '#000',
+    '--textColor': '#000000',
+    '--titleColor': '#284b63',
+    '--block_background': '#7d7d7d',
+    '--shadow': '#7e7e7eb5',
+    '--widget_color': '#fff',
+    '--shadow_widget': 'rgba(255, 255, 255, 0.978)'
+  };
+  
+  export const lightTheme = {
+    '--main': '#E7EAEF',
+    '--secondary': '#bbbbbb',
+    '--textColorHeader': '#000000b4',
+    '--white': '#ebebeb',
+    '--iconsColor': '#bbbbbb',
+    '--iconColor': '#000',
+    '--textColor': '#000000',
+    '--titleColor': '#284b63',
+    '--block_background': '#7d7d7d',
+    '--shadow': '#7e7e7eb5',
+    '--widget_color': '#fff',
+    '--shadow_widget': 'rgba(255, 255, 255, 0.978)'
+  };

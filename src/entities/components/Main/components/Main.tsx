@@ -1,15 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { MainContainer } from "../../../../shared";
 import image from "../assets/image.jpg";
 import icon1 from "../assets/download.png";
 import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
+import { Context } from "../../../../shared/components/Test/Test";
+import { Switcher } from "../../../../shared";
+import { darkTheme, lightTheme } from "./theme";
 
 export const Main = () => {
     const { t, i18n } = useTranslation("global");
     const controlsText = useAnimationControls();
     let title = t("main.title").split("");
+    const [dark, setDark] = useState(() => {
+        return localStorage.getItem("theme") === "false" ? false : true;
+    });
 
     const Click = () => {
         if (i18n.language === "ru") {
@@ -20,10 +26,24 @@ export const Main = () => {
     };
 
     useEffect(() => {
-        controlsText.start({ opacity: 0 });  
+        controlsText.start({ opacity: 0 });
     }, [i18n.language]);
 
     const [isOpen, setIsOpen] = useState(true);
+
+    let a = useContext(Context);
+
+    useEffect(() => {
+        localStorage.setItem("theme", String(dark));
+        const theme: any = dark ? darkTheme : lightTheme;
+        Object.keys(theme).forEach((key) => {
+            document.documentElement.style.setProperty(key, theme[key]);
+        });
+    }, [dark]);
+
+    const EditTheme = () => {
+        setDark(!dark);
+    };
 
     return (
         <MainContainer>
@@ -32,7 +52,7 @@ export const Main = () => {
                     <Icons draggable={false} style={{ right: 0 }} />
                     <Icons
                         initial={{ x: -150, y: 0 }}
-                        animate={isOpen?{ x: 4, y: 0 }:{}}
+                        animate={isOpen ? { x: 4, y: 0 } : {}}
                         transition={{ type: "spring", delay: 0.5 }}
                         draggable={false}
                         image={image}
@@ -64,6 +84,7 @@ export const Main = () => {
                         {t("button.resume.down")}
                         <Icon src={icon1} />
                     </Download>
+                    <Switcher dark={dark} editTheme={EditTheme} />
                     <LangBlock>
                         <Lang
                             anim={i18n.language === "ru"}
@@ -85,8 +106,8 @@ export const Main = () => {
                                 style={{ background: "#ffffff", width: "10px" }}
                             ></MyCustomComponent>
                         )}
-                    </AnimatePresence> */}
-                    {/* <button
+                    </AnimatePresence>
+                    <button
                         onClick={() => {
                             setIsOpen(!isOpen);
                         }}
@@ -153,11 +174,11 @@ const LangBlock = styled.div`
     width: 80px;
     height: 40px;
     border-radius: 22px;
-    background-color: #b2b2c3c9;
+    background-color: var(--block_background);
 
-    -webkit-box-shadow: 0px 0px 10px 2px rgb(255, 255, 255) inset;
-    -moz-box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.978) inset;
-    box-shadow: 0px 0px 10px 2px rgb(255, 255, 255) inset;
+    -webkit-box-shadow: 0px 0px 10px 2px var(--shadow_widget) inset;
+    -moz-box-shadow: 0px 0px 10px 2px var(--shadow_widget) inset;
+    box-shadow: 0px 0px 10px 2px var(--shadow_widget) inset;
 `;
 const Lang = styled.div<{ anim: boolean }>`
     position: absolute;
@@ -169,15 +190,16 @@ const Lang = styled.div<{ anim: boolean }>`
     border-radius: 50%;
     top: 0;
     left: ${(props) => (props.anim ? 0 : "calc(100% - 40px)")};
-    background-color: var(--white);
+
+    background-color: var(--iconsColor);
 
     -webkit-tap-highlight-color: transparent;
 
     text-transform: uppercase;
 
-    -webkit-box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
-    -moz-box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
-    box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
+    -webkit-box-shadow: 0px 0px 2px 1px var(--shadow_widget);
+    -moz-box-shadow: 0px 0px 2px 1px var(--shadow_widget);
+    box-shadow: 0px 0px 2px 1px var(--shadow_widget);
 
     -moz-user-select: none;
     -khtml-user-select: none;
@@ -192,7 +214,7 @@ const Download = styled.a`
     width: 120px;
     height: 40px;
     text-decoration: none;
-    background-color: var(--white);
+    background-color: var(--iconsColor);
     color: black;
 
     -webkit-tap-highlight-color: transparent;

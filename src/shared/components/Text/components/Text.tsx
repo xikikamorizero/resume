@@ -17,7 +17,7 @@ export const Text =({...props}:Props)=>{
 
 const Container = styled.div<Props>`
     width: 100%;
-    color: ${(props)=>props.color? props.color : 'var(--white)'};
+    color: ${(props)=>props.color? props.color : 'var(--textColorHeader)'};
     font-size: ${(props)=>props.fontSize? props.fontSize : '20px'};
     line-height: 1.5em;
 
