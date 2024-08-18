@@ -37,7 +37,7 @@ export const Main = () => {
         localStorage.setItem("theme", String(dark));
         const theme: any = dark ? darkTheme : lightTheme;
         Object.keys(theme).forEach((key) => {
-            document.documentElement.style.setProperty(key, theme[key]);
+            document.documentElement.style.setProperty(key, theme[key]);                                                                        
         });
     }, [dark]);
 
@@ -150,7 +150,7 @@ const IconsContainer = styled.div`
 const Title = styled.div`
     width: 100%;
     max-width: 1100px;
-    min-height: 310px;
+    height: 300px;
     color: var(--textColorHeader);
     font-size: 72px;
     line-height: 1.1em;

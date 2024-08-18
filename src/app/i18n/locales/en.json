@@ -1,5 +1,5 @@
 {
-    "main.title":"Welcome to my resume site! I am a beginner React JS developer.",
+    "main.title":"Welcome! I'm a front-end developer creating modern web interfaces.",
     "main.button":"View Portfolio",
     "aboutMe.title":"About Me",
     "aboutMe.text1":"Hello! I'm Kogay Artyom, and I'm here to tell you a little about myself and how Frontend became a part of my life as a developer. I've always been passionate about creating cool web applications and interfaces that make users' lives easier and more interesting. And React, as it turned out, fit perfectly into my story.",
@@ -14,11 +14,11 @@
     "skills.mobx.text":"Suitable for small but fast sites",
     "skills.next.text":"A framework for creating productive web applications.",
     "project.title":"Projects",
-    "footer.title":"© 2023 Kogay Artyom React Js Developer.",
+    "footer.title":"© 2023 Kogay Artyom, frontend developer.",
 
     "button.resume.down":"Resume",
-    "menu.aboutMe":"about me",
-    "menu.portfolio":"my projects",
-    "menu.skills":"my skills",
-    "menu.contacts":"contacts"
+    "menu.aboutMe":"About me",
+    "menu.portfolio":"My projects",
+    "menu.skills":"My skills",
+    "menu.contacts":"Contacts"
 }
