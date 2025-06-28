@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { MainContainer } from "../../../../shared";
 import image from "../assets/image.jpg";
 import icon1 from "../assets/download.png";
-import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 import { Context } from "../../../../shared/components/Test/Test";
 import { Switcher } from "../../../../shared";
 import { darkTheme, lightTheme } from "./theme";

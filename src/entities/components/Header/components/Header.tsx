@@ -1,12 +1,11 @@
 import React from "react";
-import { HeaderContainer } from "../../../../shared";
 import styled from "styled-components";
+import { HeaderContainer } from "../../../../shared";
 
 export const Header = () => {
   return (
     <HeaderContainer>
       <Container>
-
       </Container>
     </HeaderContainer>
   );
